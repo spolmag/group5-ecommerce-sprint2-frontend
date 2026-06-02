@@ -13,16 +13,27 @@ const DProductDetailScreen = () => {
     const [spicyLevel, setSpicyLevel] = useState('ไม่เผ็ด')
 
     useEffect(() => {
-        setLoading(true)
-        getProductById(id)
-            .then((res) => {
-                setProduct(res.data)
-                setLoading(false)
-            })
-            .catch(() => {
-                setError(true)
-                setLoading(false)
-            })
+        let cancelled = false
+
+        const fetchProduct = async () => {
+            setLoading(true)
+            try {
+                const res = await getProductById(id)
+                if (!cancelled) {
+                    setProduct(res.data)
+                    setError(null)
+                    setLoading(false)
+                }
+            } catch {
+                if (!cancelled) {
+                    setError(true)
+                    setLoading(false)
+                }
+            }
+        }
+
+        fetchProduct()
+        return () => { cancelled = true }
     }, [id])
 
     if (loading)
