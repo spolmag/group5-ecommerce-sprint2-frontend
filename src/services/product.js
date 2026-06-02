@@ -2,7 +2,8 @@ import { fetchApi } from "../utils/api";
 
 export const getProducts = async (searchQuery = "", categoryId = "") => {
     const params = new URLSearchParams();
-    if (searchQuery) params.append("q", searchQuery);
+
+    if (searchQuery) params.append("productname", searchQuery);
     if (categoryId) params.append("categoryId", categoryId);
 
     const queryString = params.toString() ? `?${params.toString()}` : "";
@@ -13,7 +14,6 @@ export const getProductById = async (id) => {
     return await fetchApi(`/products/${id}`);
 };
 
-// Admin Only
 export const createProduct = async (productData) => {
     return await fetchApi("/products", {
         method: "POST",
