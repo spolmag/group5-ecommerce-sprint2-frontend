@@ -52,6 +52,8 @@ export const products = [
         desc: 'มัทฉะเกรดพรีเมียมหอมละมุน ช่วยต้านอนุมูลอิสระและเสริมสร้างกล้ามเนื้อ',
     },
 
+
+
     // Category 2: สลัด & Bowl
     {
         id: 5,
@@ -94,6 +96,8 @@ export const products = [
         desc: 'ซีซาร์สลัดไก่ย่าง ผักกาดคอสสดกรอบ ขนมปังกรอบ และชีสคุณภาพดี',
     },
 
+
+   
     // Category 3: Smoothie
     {
         id: 9,
@@ -138,9 +142,20 @@ export const products = [
         desc: 'ผักใบเขียวรวมปั่นกับแอปเปิ้ลเขียวและโปรตีนพืช บำรุงระบบขับถ่าย',
     },
 
-    // Category 4: Meal Plan (🍱)
+    // Category 4: Meal Plan ()
     {
-        id: 13,
+    id: 13,
+    categoryId: 4,
+    name: 'Lean Muscle Plan',
+    price: 390,
+    kcal: 2000,
+    p: '140g',
+    tag: 'High Protein',
+    color: 'bg-[#eef3f1]',
+    desc: 'ชุดอาหารโปรตีนสูง ไขมันต่ำ เหมาะสำหรับสร้างกล้ามเนื้อแบบ Lean และคุมแคลอรี่',
+    },
+    {
+        id: 14,
         categoryId: 4,
         name: 'Weight Loss Set (1 Day)',
         price: 350,
@@ -151,7 +166,7 @@ export const products = [
         desc: 'ชุดอาหารควบคุมน้ำหนักสำหรับ 1 วัน ครบ 3 มื้อ คัดสรรโภชนาการที่เหมาะสม',
     },
     {
-        id: 14,
+        id: 15,
         categoryId: 4,
         name: 'Muscle Gain Set (1 Day)',
         price: 420,
@@ -161,7 +176,7 @@ export const products = [
         desc: 'ชุดอาหารเพิ่มกล้ามเนื้อ โปรตีนสูงพิเศษสำหรับผู้ที่ออกกำลังกายหนัก',
     },
     {
-        id: 15,
+        id: 16,
         categoryId: 4,
         name: 'Office Worker Bowl Set',
         price: 280,
@@ -171,7 +186,7 @@ export const products = [
         desc: 'อาหารกลางวันและเย็นสำหรับวัยทำงาน สะดวก พร้อมสารอาหารครบ 5 หมู่',
     },
     {
-        id: 16,
+        id: 17,
         categoryId: 4,
         name: 'Vegan Day Plan',
         price: 320,
@@ -181,9 +196,9 @@ export const products = [
         desc: 'ชุดอาหารมังสวิรัติเพื่อสุขภาพ ไร้เนื้อสัตว์แต่โปรตีนถึงใจ',
     },
 
-    // Category 5: Supplement (💊)
+    // Category 5: Supplement ()
     {
-        id: 17,
+        id: 18,
         categoryId: 5,
         name: 'Premium Whey Isolate',
         price: 1450,
@@ -194,7 +209,117 @@ export const products = [
         desc: 'เวย์โปรตีนไอโซเลทเกรดนำเข้า ดูดซึมเร็ว ไขมันและน้ำตาล 0%',
     },
     {
-        id: 18,
+    id: 19,
+    categoryId: 5,
+    name: 'Whey Protein Vanilla',
+    price: 1290,
+    kcal: 120,
+    p: '25g',
+    tag: 'Best Seller',
+    color: 'bg-[#f5f1ea]',
+    desc: 'เวย์โปรตีนรสวนิลลา กลิ่นหอมละมุน ดื่มง่าย โปรตีนสูง ไขมันต่ำ'
+    },
+    {
+        id: 20,
+        categoryId: 5,
+        name: 'Whey Protein Strawberry',
+        price: 1290,
+        kcal: 125,
+        p: '25g',
+        tag: 'Popular',
+        color: 'bg-[#ffe5ec]',
+        desc: 'เวย์โปรตีนรสสตรอว์เบอร์รี่ หวานหอมสดชื่น โปรตีนสูง ดื่มง่าย'
+    },
+    {
+        id: 21,
+        categoryId: 5,
+        name: 'Whey Protein Orange',
+        price: 1290,
+        kcal: 118,
+        p: '24g',
+        tag: 'Fresh',
+        color: 'bg-[#fff1dc]',
+        desc: 'เวย์โปรตีนรสส้ม สดชื่น ดื่มง่าย ให้โปรตีนเต็มๆ หลังออกกำลังกาย'
+    },
+    {
+        id: 22,
+        categoryId: 5,
+        name: 'Whey Protein Matcha',
+        price: 1350,
+        kcal: 130,
+        p: '25g',
+        tag: 'Healthy',
+        color: 'bg-[#e6f4e6]',
+        desc: 'เวย์โปรตีนรสมัทฉะ หอมชาเขียวญี่ปุ่น โปรตีนสูง รสชาติพรีเมียม'
+    },
+    {
+        id: 23,
+        categoryId: 5,
+        name: 'Whey Protein Cookies and Cream',
+        price: 1390,
+        kcal: 140,
+        p: '26g',
+        tag: 'Popular',
+        color: 'bg-[#f2f2f2]',
+        desc: 'เวย์โปรตีนคุกกี้แอนด์ครีม รสเข้มข้น หอมคุกกี้ ดื่มอร่อยเหมือนของหวาน'
+    },
+    {
+        id: 24,
+        categoryId: 5,
+        name: 'Whey Protein Chocolate',
+        price: 1290,
+        kcal: 135,
+        p: '25g',
+        tag: 'Classic',
+        color: 'bg-[#ede0d4]',
+        desc: 'เวย์โปรตีนรสช็อกโกแลต เข้มข้น ดื่มง่าย โปรตีนสูง เหมาะสำหรับสายฟิตเนส'
+    },
+    {
+        id: 25,
+        categoryId: 6,
+        name: 'Zinc',
+        price: 290,
+        kcal: 0,
+        p: '0g',
+        tag: 'Immune Support',
+        color: 'bg-[#eef2f3]',
+        desc: 'ซิงก์ช่วยเสริมภูมิคุ้มกัน ดูแลผิว ลดสิว และช่วยฟื้นฟูร่างกาย'
+    },
+    {
+        id: 26,
+        categoryId: 6,
+        name: 'Vitamin C',
+        price: 350,
+        kcal: 5,
+        p: '0g',
+        tag: 'Vitamin',
+        color: 'bg-[#fff4cc]',
+        desc: 'วิตามินซีช่วยเสริมภูมิคุ้มกัน ต้านอนุมูลอิสระ และช่วยให้ผิวกระจ่างใส'
+    },
+    {
+        id: 27,
+        categoryId: 6,
+        name: 'Vitamin D',
+        price: 390,
+        kcal: 0,
+        p: '0g',
+        tag: 'Bone Health',
+        color: 'bg-[#fff8e7]',
+        desc: 'วิตามินดีช่วยเสริมกระดูกและภูมิคุ้มกัน เหมาะสำหรับคนที่โดนแดดน้อย'
+    },
+    {
+        id: 28,
+        categoryId: 6,
+        name: 'Magnesium',
+        price: 420,
+        kcal: 0,
+        p: '0g',
+        tag: 'Recovery',
+        color: 'bg-[#ececff]',
+        desc: 'แมกนีเซียมช่วยลดอาการล้า คลายกล้ามเนื้อ และช่วยให้นอนหลับสบาย'
+    },
+    {
+        id: 29,
         categoryId: 5,
         name: 'Creatine Monohydrate',
         price: 590,
@@ -204,7 +329,7 @@ export const products = [
         desc: 'ครีเอทีนบริสุทธิ์ ช่วยเพิ่มพละกำลังและความทนทานของกล้ามเนื้อ',
     },
     {
-        id: 19,
+        id: 30,
         categoryId: 5,
         name: 'Daily Multi-Vitamin',
         price: 450,
@@ -214,7 +339,7 @@ export const products = [
         desc: 'วิตามินรวมและแร่ธาตุที่จำเป็น 21 ชนิด เพื่อความสมดุลของร่างกายในทุกวัน',
     },
     {
-        id: 20,
+        id: 31,
         categoryId: 5,
         name: 'Omega-3 Fish Oil',
         price: 380,
@@ -222,5 +347,5 @@ export const products = [
         p: '0g',
         color: 'bg-[#fffbe6]',
         desc: 'น้ำมันปลาเข้มข้น บำรุงสมอง หัวใจ และลดการอักเสบของกล้ามเนื้อ',
-    },
+    }, 
 ]
