@@ -11,3 +11,7 @@ export const getAdminOrders = async () => {
 export const getAllUsers = async () => {
     return await fetchApi("/users");
 };
+
+export const getAdminProducts = async () => {
+    return await fetchApi("/admin/products");
+};
