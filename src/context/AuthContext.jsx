@@ -3,6 +3,8 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { login, logout } from "../services/auth";
 import { getMe } from "../services/user";
 
+import SkeletonLoader from "@/components/ui/SkeletonLoader";
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -54,7 +56,7 @@ export const AuthProvider = ({ children }) => {
         <AuthContext.Provider
             value={{ user, loading, handleLogin, handleLogout }}
         >
-            {!loading && children}
+            {loading ? <SkeletonLoader /> : children}
         </AuthContext.Provider>
     );
 };
