@@ -1,15 +1,32 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useCart } from "@/context/useCart";
-import { useNavigate } from "react-router-dom"; 
 import { SHIPPING_FEE } from "@/data/cart";
+import { createOrder } from "@/services/order";
+
+const PAYMENT_METHOD_MAP = {
+  card: "Bank transfer",
+  q: "Bank transfer",
+  cod: "Cash on Delivery",
+  wallet: "Bank transfer",
+};
 
 function DPaymentScreen() {
+  const location = useLocation();
   const navigate = useNavigate();
-  const { subtotal, total } = useCart();
+  const { subtotal, total, clearCart } = useCart();
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [formData, setFormData] = useState({ cardNumber: "", expiry: "", cvv: "", name: "" });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const addressId = location.state?.addressId;
+
+  useEffect(() => {
+    if (!addressId) navigate("/cart", { replace: true });
+  }, [addressId, navigate]);
 
   const methods = [
     { id: "card", label: "บัตรเครดิต/เดบิต" },
@@ -34,15 +51,27 @@ function DPaymentScreen() {
     return newErrors;
   }
 
-  function handleSubmit() {
+  async function handleSubmit() {
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    
-    navigate("/tracking");
-    setSubmitted(true);
+    setSubmitting(true);
+    setSubmitError("");
+    try {
+      await createOrder({
+        addressId,
+        paymentMethod: PAYMENT_METHOD_MAP[selectedMethod],
+      });
+      await clearCart();
+      setSubmitted(true);
+      navigate("/tracking");
+    } catch (err) {
+      setSubmitError(err?.message ?? "เกิดข้อผิดพลาด กรุณาลองใหม่");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (submitted) {
@@ -158,12 +187,16 @@ function DPaymentScreen() {
             </div>
           )}
 
+          {submitError && (
+            <p className="text-sm text-center" style={{ color: "#D95B5B" }}>{submitError}</p>
+          )}
           <button
             onClick={handleSubmit}
-            className="w-full py-3 rounded-lg text-white font-semibold"
+            disabled={submitting}
+            className="w-full py-3 rounded-lg text-white font-semibold disabled:opacity-60"
             style={{ backgroundColor: "#5B8C5A" }}
           >
-            ยืนยันชำระเงิน ฿{total}
+            {submitting ? "กำลังดำเนินการ..." : `ยืนยันชำระเงิน ฿${total}`}
           </button>
         </section>
 

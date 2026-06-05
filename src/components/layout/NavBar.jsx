@@ -50,10 +50,23 @@ const NavBar = () => {
                     {/* Logo Section */}
                     <Link to="/" className="flex items-center gap-2 md:gap-3">
                         <div className="flex h-8 w-8 items-center justify-center rounded-xl border border-[#d6d2c7] bg-white shadow-sm">
-                            <span className="text-sm">🥗</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="26" height="26" role="img" aria-label="JuicyHealthy">
+                                <defs>
+                                    <clipPath id="jh-citrus"><path d="M24.4 37 C35 29.5 38.5 21.5 34.5 14.5 C27.5 13 24 19 24.4 27 Z"/></clipPath>
+                                </defs>
+                                <path d="M23.6 37 C13 29.5 9.5 21.5 13.5 14.5 C20.5 13 24 19 23.6 27 Z" fill="#2F9E57"/>
+                                <path d="M24.4 37 C35 29.5 38.5 21.5 34.5 14.5 C27.5 13 24 19 24.4 27 Z" fill="#F5A12E"/>
+                                <g clipPath="url(#jh-citrus)" stroke="#ffffff" strokeWidth="1.2" strokeLinecap="round" opacity="0.92">
+                                    <line x1="24" y1="36" x2="29" y2="17"/>
+                                    <line x1="24" y1="36" x2="33" y2="20"/>
+                                    <line x1="24" y1="36" x2="35" y2="25"/>
+                                    <line x1="24" y1="36" x2="34" y2="30"/>
+                                </g>
+                                <path d="M23.6 37 C20.5 31 18 25.5 15.5 19.5" stroke="#ffffff" strokeWidth="1.1" strokeLinecap="round" opacity="0.5" fill="none"/>
+                            </svg>
                         </div>
-                        <span className="text-[15px] font-bold tracking-wide text-[#202020]">
-                            JuicyHealthy
+                        <span className="text-[15px] font-bold tracking-wide">
+                            <span className="text-[#202020]">Juicy</span><span className="text-[#2F9E57]">Healthy</span>
                         </span>
                     </Link>
 
@@ -144,7 +157,7 @@ const NavBar = () => {
                                         onClick={() => navigate("/admin")}
                                         className="w-full flex items-center gap-2 px-4 py-3 text-[11px] font-bold text-[#5b5750] hover:bg-[#f5f2ea] transition-colors border-b border-[#e5dfd3]"
                                     >
-                                        <User size={14} /> ระบบหลังบ้าน
+                                        <User size={14} /> จัดการร้าน
                                     </button>
                                 )}
                                 <button
