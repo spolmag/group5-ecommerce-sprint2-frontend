@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useCart } from "@/context/useCart";
+import { useNavigate } from "react-router-dom"; 
 import { SHIPPING_FEE } from "@/data/cart";
 
 function DPaymentScreen() {
+  const navigate = useNavigate();
   const { subtotal, total } = useCart();
   const [selectedMethod, setSelectedMethod] = useState("card");
   const [formData, setFormData] = useState({ cardNumber: "", expiry: "", cvv: "", name: "" });
@@ -38,6 +40,8 @@ function DPaymentScreen() {
       setErrors(newErrors);
       return;
     }
+    
+    navigate("/tracking");
     setSubmitted(true);
   }
 
