@@ -193,6 +193,7 @@ const NavBar = () => {
                 >
                     <MapPin size={14} /> ติดตามคำสั่งซื้อ
                 </Link>
+                
                 <button
                   onClick={onLogout}
                   className="w-full flex items-center gap-2 px-4 py-3 text-[11px] font-bold text-red-500 hover:bg-red-50 transition-colors"
