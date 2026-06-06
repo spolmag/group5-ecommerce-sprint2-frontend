@@ -38,7 +38,7 @@ const DPaymentScreen = () => {
         } catch (error) {
             console.error("Order creation failed:", error);
             const message =
-                error.response?.data?.message || "เกิดข้อผิดพลาดในการสั่งซื้อ";
+                error.message || "เกิดข้อผิดพลาดในการสั่งซื้อ";
 
             // alert now we're only have xx ea
             alert(`ขออภัยครับ: ${message}`);
