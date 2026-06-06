@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import { getAdminStats, getAdminOrders } from '@/services/admin'
 
 const statusColor = {
-    pending:   'bg-yellow-100 text-yellow-700',
-    paid:      'bg-green-100 text-green-700',
-    cancelled: 'bg-red-100 text-red-700',
+    "Pending":     "bg-yellow-100 text-yellow-700",
+    "Paid":        "bg-green-100 text-green-700",
+    "On delivery": "bg-blue-100 text-blue-700",
+    "Delivered":   "bg-emerald-100 text-emerald-700",
+    "Cancelled":   "bg-red-100 text-red-700",
 }
 
 export default function AdminDashboard() {
@@ -84,7 +86,7 @@ export default function AdminDashboard() {
                             {orders.map((order) => (
                                 <tr key={order._id} className="border-t border-[#DDD9D0]">
                                     <td className="px-6 py-4 font-medium text-[#5B8C5A]">{order._id}</td>
-                                    <td className="px-6 py-4 text-[#1C1C1A]">{order.userId}</td>
+                                    <td className="px-6 py-4 text-[#1C1C1A]">{order.userId?.username ?? '—'}</td>
                                     <td className="px-6 py-4 text-[#1C1C1A]">฿{order.total?.toLocaleString()}</td>
                                     <td className="px-6 py-4">
                                         <span className={`px-2.5 py-1 rounded-full text-xs font-medium ${statusColor[order.status] ?? 'bg-gray-100 text-gray-600'}`}>
