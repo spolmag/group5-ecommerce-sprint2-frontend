@@ -7,7 +7,7 @@ import { useCart } from "@/context/useCart";
 const DPaymentScreen = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { total, clearCart } = useCart();
+    const { total } = useCart();
 
     const addressId = location.state?.addressId;
     const [selectedMethod, setSelectedMethod] = useState("Bank transfer");
@@ -33,8 +33,6 @@ const DPaymentScreen = () => {
                 paymentMethod: selectedMethod,
             });
 
-            //done
-            await clearCart();
             navigate("/tracking");
             
         } catch (error) {
