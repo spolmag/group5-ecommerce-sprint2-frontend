@@ -1,7 +1,7 @@
 import { fetchApi } from "../utils/api";
 
 export const createOrder = async (orderData) => {
-    return await fetchApi("/orders", {
+    return await fetchApi("/orders/checkout", {
         method: "POST",
         body: JSON.stringify(orderData),
     });
